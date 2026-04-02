@@ -14,5 +14,6 @@ func main() {
 	handler.DB = conn
 	r.GET("/", handler.HealthCheck)
 	r.POST("/shorten", handler.ShortenURL)
+	r.GET("/:code", handler.RedirectURL)
 	r.Run(":8080")
 }
