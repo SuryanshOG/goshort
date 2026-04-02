@@ -9,5 +9,6 @@ import (
 func main() {
 	r := gin.Default()
 	r.GET("/", handler.HealthCheck)
+	r.POST("/shorten", handler.ShortenURL)
 	r.Run(":8080")
 }
