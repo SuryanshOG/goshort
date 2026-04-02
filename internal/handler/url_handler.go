@@ -1,10 +1,14 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"goshort/pkg/utils"
+
+	"github.com/gin-gonic/gin"
+)
 
 func HealthCheck(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"message": "Server is running :)",
+		"message": "Laudasur :)",
 	})
 }
 
@@ -18,7 +22,7 @@ func ShortenURL(c *gin.Context) {
 		return
 	}
 
-	shortCode := "abc123"
+	shortCode := utils.GenerateRandomShortCode(6)
 
 	c.JSON(200, gin.H{
 		"short_url": "http://localhost:8080/" + shortCode,
